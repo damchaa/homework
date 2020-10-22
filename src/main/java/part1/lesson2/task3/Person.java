@@ -43,4 +43,24 @@ public class Person {
                 ", sex=" + sex +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (age != person.age) return false;
+        if (name != null ? !name.equals(person.name) : person.name != null) return false;
+        return sex == person.sex;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = age;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (sex != null ? sex.hashCode() : 0);
+        return result;
+    }
 }
