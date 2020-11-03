@@ -2,18 +2,18 @@ package part1.lesson4.task3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class MathBox extends ObjectBox {
 
     private ArrayList<Number> list = new ArrayList<>();
 
-    public MathBox() {
-
-    }
 
     public MathBox(Number[] numbers) {
-        this.list.addAll(Arrays.asList(numbers));
+        for (Number number: numbers){
+            list.add(number);
+        }
     }
 
     public ArrayList<Number> getList() {
@@ -22,7 +22,6 @@ public class MathBox extends ObjectBox {
 
     public Number summator() {
         int summa = 0;
-
         for (Number number : list) {
             summa += number.intValue();
         }
