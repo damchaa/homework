@@ -6,35 +6,32 @@ import java.util.Scanner;
 
 public class Client {
     public static void main(String[] args) throws IOException {
+        Socket clientSocket;
+        BufferedReader reader; //для чтения с консоли
 
+        BufferedReader in;
+        BufferedWriter out;
 
-        System.out.println("Старт подключения");
-        Socket socket = new Socket("localhost", 4999);
-        try (BufferedReader br = new BufferedReader(
-                new InputStreamReader(
-                        socket.getInputStream()
-                ));
-             PrintWriter out = new PrintWriter(
-                     new OutputStreamWriter(
-                             socket.getOutputStream()
-                     ), true
-             );
-        Scanner scanner = new Scanner(System.in)){
-            while(true) {
-                final String line = scanner.nextLine();
-                if ("end".equals(line))
-                    break;
+        try{
+            clientSocket = new Socket("localhost",5555);
+            reader = new BufferedReader(new InputStreamReader(System.in));
 
-                String name = scanner.nextLine();
-                String text = scanner.nextLine();
-                MessageClient messageClient = new MessageClient(name, text);
-                out.println(messageClient);
+            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
 
-                System.out.println("Ответ от сервера: " + br.readLine());
-            }
+            System.out.println("введите текст ");
+            String message = reader.readLine();
+            out.write(message + "\n");
+            out.flush();
+            String serverMessage = in.readLine();
+            System.out.println(serverMessage);
 
 
         }
+        catch (Exception e){
+
+        }
+
 
     }
 }

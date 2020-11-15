@@ -1,46 +1,44 @@
 package part1.lesson4.task3;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
-public class MathBox extends ObjectBox {
-
-    private ArrayList<Number> list = new ArrayList<>();
+public class MathBox<T extends Number> extends ObjectBox<T>{
 
 
-    public MathBox(Number[] numbers) {
-        for (Number number: numbers){
-            list.add(number);
-        }
+
+
+    public MathBox(T[] numbers) {
+        super(numbers);
     }
 
-    public ArrayList<Number> getList() {
-        return list;
+    public List<T> getList() {
+        return super.getList();
     }
 
     public Number summator() {
         int summa = 0;
-        for (Number number : list) {
+        for (T number : getList()) {
             summa += number.intValue();
         }
         return summa;
     }
 
     public void splitter(int devisor) {
-        ArrayList<Number> numbers = new ArrayList<>();
-        for (Number value : list) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (T value : super.getList()) {
             numbers.add(value.intValue() / devisor);
         }
-        list.clear();
-        list.addAll(numbers);
+        getList().clear();
+        getList().addAll((Collection<? extends T>) numbers);
     }
 
     public void checkInteger(Integer integer) {
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals(integer)) {
-                list.remove(list.get(i));
+        for (int i = 0; i < getList().size(); i++) {
+            if (getList().get(i).equals(integer)) {
+                getList().remove(getList().get(i));
             }
         }
 
@@ -51,18 +49,18 @@ public class MathBox extends ObjectBox {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         part1.lesson4.task3.MathBox mathBox = (part1.lesson4.task3.MathBox) o;
-        return Objects.equals(list, mathBox.list);
+        return Objects.equals(getList(), mathBox.getList());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(list);
+        return Objects.hash(getList());
     }
 
     @Override
     public String toString() {
         return "MathBox{" +
-                "list=" + list +
+                "list=" + getList() +
                 '}';
     }
 }

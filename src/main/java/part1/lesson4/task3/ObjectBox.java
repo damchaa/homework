@@ -7,6 +7,11 @@ import java.util.List;
 public class ObjectBox<T extends Number> {
     private List<T> list = new ArrayList<>();
 
+    public ObjectBox(T[] numbers){
+        for (T number : numbers){
+            list.add(number);
+        }
+    }
     public List<T> getList() {
         return list;
     }

@@ -2,7 +2,11 @@ package part1.lesson5.task1;
 
 import java.util.*;
 
-public class Sort {
+public class WorkerWithList {
+    private static Set<Animal> animals = new HashSet<>();
+    public static void addToSet(Animal animal){
+        animals.add(animal);
+    }
     public static Animal findById(Set<Animal> animals, int id){
         for (Animal animal: animals){
             if (animal.getId() == id){
@@ -11,7 +15,7 @@ public class Sort {
         }
         return null;
     }
-    public static void setDataAnimal(Set<Animal> animals, int id, Person person){
+    public static void setDataAnimal(int id, Person person){
         for (Animal animal: animals){
             if (animal.getId() == id){
                 Scanner scanner = new Scanner(System.in);
@@ -27,7 +31,7 @@ public class Sort {
         }
 
     }
-    public static void sortByName(Set<Animal> animals){
+    public static void sortByName(){
         SortedSet<Animal> animals1 = new TreeSet<>(new Comparator<Animal>() {
             @Override
 
@@ -42,7 +46,7 @@ public class Sort {
         }
 
     }
-    public static void sortByWeight(Set<Animal> animals){
+    public static void sortByWeight(){
         SortedSet<Animal> animals1 = new TreeSet<>(new Comparator<Animal>() {
             @Override
             public int compare(Animal o1, Animal o2) {
@@ -64,7 +68,7 @@ public class Sort {
         }
     }
 
-    public static void sortByPerson(Set<Animal> animals){
+    public static void sortByPerson(){
         SortedSet<Animal> animals1 = new TreeSet<>(new Comparator<Animal>() {
             @Override
             public int compare(Animal o1, Animal o2) {

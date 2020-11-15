@@ -15,23 +15,11 @@ public class Main {
         arrays[2] = 3;
         arrays[3] = 4;
         arrays[4] = 5;
-        int size = arrays.length;
+
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        for (int i = 0; i< size; i++){
-            int count = i;
-            executor.submit(new Runnable() {
-                @Override
-                public void run() {
-
-                    BigInteger number = BigInteger.valueOf(1);
-                    for (int i = arrays[count]; i > 0; i--){
-                        number = BigInteger.valueOf(i).multiply(number);
-                    }
-                    System.out.println(number);
-                }
-            });
-        }
+        MyThread myThread = new MyThread(arrays);
+        executor.submit(myThread);
 
     }
 

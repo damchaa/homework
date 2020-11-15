@@ -1,10 +1,10 @@
 package part1.lesson5.task1;
 
-import java.util.*;
+
 
 public class Main {
     public static void main(String[] args) {
-        Set<Animal> animals = new HashSet<>();
+
 
         Person danil = new Person("Danil",23, true);
         Animal cat = new Animal(1,"Stepa", danil, 5);
@@ -18,14 +18,16 @@ public class Main {
         Person kolob = new Person("Kolob", 24, true);
         Animal buldog = new Animal(4,"Jessica", kolob, 25);
 
-        animals.add(cat);
-        animals.add(dog);
-        animals.add(fish);
-        animals.add(buldog);
+        WorkerWithList.addToSet(cat);
+        WorkerWithList.addToSet(dog);
+        WorkerWithList.addToSet(fish);
+        WorkerWithList.addToSet(buldog);
 
-        Sort.sortByName(animals);
-        Sort.sortByWeight(animals);
-        Sort.sortByPerson(animals);
+        WorkerWithList.sortByName();
+        System.out.println("=================");
+        WorkerWithList.sortByWeight();
+        System.out.println("=================");
+        WorkerWithList.sortByPerson();
     }
 
 }
