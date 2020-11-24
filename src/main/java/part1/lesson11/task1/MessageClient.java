@@ -1,12 +1,14 @@
 package part1.lesson11.task1;
 
-public class MessageClient {
+import java.io.Serializable;
+
+public class MessageClient   {
     private String name;
     private String message;
 
-    public MessageClient(String name,String message){
-        this.name = name;
-        this.message = message;
+    public MessageClient(){
+
+
     }
 
     public String getName() {

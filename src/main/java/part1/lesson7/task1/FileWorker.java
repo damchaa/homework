@@ -26,7 +26,7 @@ public class FileWorker {
         }
         FileWriter writer = new FileWriter(string2);
         for (String string: stringSet){
-            writer.write(string + System.getProperty("line.separator"));
+            writer.write(string + System.lineSeparator());
         }
         writer.close();
     }
