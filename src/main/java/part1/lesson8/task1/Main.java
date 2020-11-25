@@ -16,10 +16,19 @@ public class Main {
         arrays[3] = 4;
         arrays[4] = 5;
 
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+        MyThread myThread;
+        for (int k: arrays){
+             myThread = new MyThread(k);
+            executor.submit(myThread);
 
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        MyThread myThread = new MyThread(arrays);
-        executor.submit(myThread);
+        }
+
+      //  ExecutorService executor = Executors.newSingleThreadExecutor();
+
+
+
+
 
     }
 

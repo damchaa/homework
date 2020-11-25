@@ -15,17 +15,12 @@ public class Server  {
         BufferedWriter out; // Поток для записи в сокет
         Set<SomeUser> someUsers = new HashSet<>();
 
-
-
             System.out.println("Сервер запущен");
             try {
-                serverSocket = new ServerSocket(5555);
+                serverSocket = new ServerSocket(12344);
 
                 clientSocket = serverSocket.accept();
                 System.out.println(clientSocket);
-
-
-
 
                 in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));

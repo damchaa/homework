@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         String path = "D:\\Project\\";
         int n = 2;
-        int size = 32768;
+        int size = 2048;
         String[] words = {"mama","mila","ramy"};
         int probability = 2;
 
