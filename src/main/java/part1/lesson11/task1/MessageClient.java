@@ -29,9 +29,8 @@ public class MessageClient   {
 
     @Override
     public String toString() {
-        return "MessageClient{" +
-                "name='" + name + '\'' +
-                ", message='" + message + '\'' +
-                '}';
+        return
+                "Пользователь: '" + name + '\'' +
+                ", Вещает '" + message + '\'' ;
     }
 }
