@@ -1,12 +1,12 @@
-package part1.lesson11.task1;
+package part1.lesson11.task2;
 
 import java.io.*;
 import java.net.Socket;
 
 public class SomeUser extends Thread {
-    private Socket socket;
-    private BufferedReader in;
-    private PrintWriter out;
+    Socket socket;
+    BufferedReader in;
+    PrintWriter out;
 
     SomeUser(Socket socket) throws IOException {
         this.socket = socket;
@@ -19,9 +19,9 @@ public class SomeUser extends Thread {
         try {
             while(true) {
                 String clientMessage = in.readLine();
-                for (SomeUser someUser : Server.clientsList) {
-                    someUser.out.write(clientMessage + "\n");
-                    someUser.out.flush();
+                for (SomeUser ct : Server.clientsList) {
+                    ct.out.write(clientMessage + "\n");
+                    ct.out.flush();
                 }
             }
         }
