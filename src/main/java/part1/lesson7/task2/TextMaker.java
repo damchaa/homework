@@ -103,7 +103,7 @@ public class TextMaker {
         InputStreamReader inStream = new InputStreamReader(FileReader);
         BufferedReader bufReader = new BufferedReader(inStream);
         ArrayList<String> list = new ArrayList<>();
-        String s = null;
+        String s = null; 
         while (true){
             try {
                 if (!((s = bufReader.readLine()) != null)) break;
